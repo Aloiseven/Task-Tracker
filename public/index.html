@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <title>Task Tracker — Live Client / Server Demo</title>
+      <link rel="stylesheet" href="demo.css">
+    </head>
+  <body>
+
+    <header>
+      <div>
+        <div class="title">Task Tracker <span>— live demo</span></div>
+        <div class="subtitle">Every click below sends a real HTTP request through the client → server → storage round trip, shown in real time.</div>
+      </div>
+      <div class="badge">GET / POST / PUT / DELETE &nbsp;→&nbsp; /api/tasks</div>
+    </header>
+
+    <div class="board">
+
+    <!-- CLIENT / BROWSER -->
+    <div class="pane">
+    <div class="pane-head">
+      <div class="dot-row">
+        <div class="dot" style="background:var(--mint)"></div>
+        <div class="dot" style="background:var(--seafoam)"></div>
+        <div class="dot" style="background:var(--teal)"></div>
+      </div>
+      <div class="label">1&nbsp;&nbsp;CLIENT — BROWSER UI</div>
+    </div>
+    <div class="pane-body">
+      <form class="add-form" id="addForm">
+        <input type="text" id="taskInput" placeholder="Add a task and press Enter…" autocomplete="off">
+        <button type="submit" id="addBtn">Add</button>
+      </form>
+      <div class="filters">
+        <button class="active" data-filter="all">All</button>
+        <button data-filter="open">Open</button>
+        <button data-filter="done">Done</button>
+      </div>
+      <ul class="task-list" id="taskList"></ul>
+    </div>
+    </div>
+
+  <!-- NETWORK -->
+  <div class="pane pane-dark">
+    <div class="pane-head">
+      <div class="label">2&nbsp;&nbsp;NETWORK — REQUEST / RESPONSE</div>
+    </div>
+    <div class="log" id="log">
+      <div class="log-empty">Waiting for the first action… try adding a task.</div>
+    </div>
+  </div>
+
+  <!-- DATABASE -->
+  <div class="pane pane-dark">
+    <div class="pane-head">
+      <div class="label">3&nbsp;&nbsp;SERVER — IN-MEMORY STORAGE</div>
+      <span class="db-count" id="dbCount">0 records</span>
+    </div>
+    <div class="pane-body">
+      <pre id="dbView">[]</pre>
+    </div>
+  </div>
+
+    </div>
+    <script src="script.js"></script>
+
+  </body>
+</html>
